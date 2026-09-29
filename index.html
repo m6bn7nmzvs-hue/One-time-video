@@ -2,13 +2,104 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Private Video</title>
+  <title>Therapy 101</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .warning {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 42px;
+      letter-spacing: 6px;
+      margin-bottom: 30px;
+    }
+
+    .warning-icon {
+      font-size: 45px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      max-width: 500px;
+      line-height: 1.7;
+      color: #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 16px 30px;
+      background: #fff;
+      color: #000;
+      border: none;
+      font-size: 15px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      cursor: pointer;
+    }
+
+    #videoSection {
+      display: none;
+      padding: 20px;
+    }
+
+    video {
+      width: 100%;
+      max-width: 1000px;
+    }
+  </style>
 </head>
+
 <body>
-  <h2>Private Video</h2>
-  <video controls playsinline width="100%">
-    <source src="https://www.dropbox.com/scl/fi/e8jc4wwd05wmynh7fyffl/Video-29-9-2026-15-01-07.mov?rlkey=wd8lqxrrkarzeiohmdm00a2go&st=00dfhukf&raw=1" type="video/quicktime">
-    Your browser does not support video playback.
-  </video>
+
+  <div class="warning" id="warningScreen">
+    <div class="warning-icon">⚠️</div>
+
+    <h1>THERAPY 101</h1>
+
+    <p>
+      This video can only be viewed once.
+      Once you continue and start the video,
+      your viewing session will begin.
+    </p>
+
+    <p>
+      For the best experience, use earphones or AirPods
+      and rotate your phone to landscape.
+    </p>
+
+    <button onclick="beginViewing()">BEGIN VIEWING</button>
+  </div>
+
+  <div id="videoSection">
+    <video controls playsinline>
+      <source src="https://www.dropbox.com/scl/fi/e8jc4wwd05wmynh7fyffl/Video-29-9-2026-15-01-07.mov?rlkey=wd8lqxrrkarzeiohmdm00a2go&st=00dfhukf&raw=1" 
+    type="video/quicktime">
+      Your browser does not support video playback.
+    </video>
+  </div>
+
+  <script>
+    function beginViewing() {
+      document.getElementById("warningScreen").style.display = "none";
+      document.getElementById("videoSection").style.display = "block";
+    }
+  </script>
+
 </body>
 </html>
