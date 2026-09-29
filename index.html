@@ -361,7 +361,13 @@ type="video/quicktime">
 
   const video = document.querySelector("video");
 
-  video.addEventListener("ended", function() {
+  video.addEventListener("timeupdate", function() {
+    if (video.currentTime >= video.duration - 0.5) {
+      document.getElementById("videoSection").style.display = "none";
+document.getElementById("endingScreen").style.display = "block";
+window.scrollTo(0, 0);
+}
+});
     document.getElementById("videoSection").style.display = "none";
     document.getElementById("endingScreen").style.display = "block";
     window.scrollTo(0, 0);
