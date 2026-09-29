@@ -168,6 +168,117 @@
       margin: 20px 0;
     }
   </style>
+      /* POST-VIDEO ENDING */
+
+    #endingScreen {
+      display: none;
+      position: relative;
+      min-height: 100vh;
+      background: #000;
+      color: #fff;
+      overflow: hidden;
+      text-align: center;
+      padding: 60px 25px;
+    }
+
+    .endingVisual {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .bird {
+      position: absolute;
+      top: -80px;
+      left: 25%;
+      font-size: 45px;
+      animation: birdMove 12s linear infinite;
+    }
+
+    .fish {
+      position: absolute;
+      bottom: -80px;
+      right: 25%;
+      font-size: 45px;
+      animation: fishMove 12s linear infinite;
+    }
+
+    @keyframes birdMove {
+      0% {
+        transform: translateY(0) translateX(0);
+      }
+
+      50% {
+        transform: translateY(50vh) translateX(80px);
+      }
+
+      100% {
+        transform: translateY(110vh) translateX(0);
+      }
+    }
+
+    @keyframes fishMove {
+      0% {
+        transform: translateY(0) translateX(0);
+      }
+
+      50% {
+        transform: translateY(-50vh) translateX(-80px);
+      }
+
+      100% {
+        transform: translateY(-110vh) translateX(0);
+      }
+    }
+
+    .endingText {
+      position: relative;
+      z-index: 2;
+      max-width: 650px;
+      margin: 0 auto;
+      padding-top: 15vh;
+    }
+
+    .endingText p {
+      color: #ddd;
+      font-size: 17px;
+      line-height: 1.8;
+      margin: 0 0 35px;
+      opacity: 0;
+      animation: textFade 2s ease forwards;
+    }
+
+    .endingText p:nth-child(1) {
+      animation-delay: 1s;
+    }
+
+    .endingText p:nth-child(2) {
+      animation-delay: 3s;
+    }
+
+    .endingText p:nth-child(3) {
+      animation-delay: 5s;
+    }
+
+    .endingText p:nth-child(4) {
+      animation-delay: 7s;
+    }
+
+    .endingText p:nth-child(5) {
+      animation-delay: 9s;
+    }
+
+    .endingText p:nth-child(6) {
+      animation-delay: 11s;
+    }
+
+    @keyframes textFade {
+      to {
+        opacity: 1;
+      }
+    }
 </head>
 
 <body>
@@ -243,12 +354,55 @@ type="video/quicktime">
 
   <script>
 
-    function beginViewing() {
-      document.getElementById("warningScreen").style.display = "none";
-      document.getElementById("videoSection").style.display = "block";
-    }
+  function beginViewing() {
+    document.getElementById("warningScreen").style.display = "none";
+    document.getElementById("videoSection").style.display = "block";
+  }
 
-  </script>
+  const video = document.querySelector("video");
+
+  video.addEventListener("ended", function() {
+    document.getElementById("videoSection").style.display = "none";
+    document.getElementById("endingScreen").style.display = "block";
+    window.scrollTo(0, 0);
+  });
+
+</script>
 
 </body>
+<!-- POST-VIDEO ENDING -->
+
+<div id="endingScreen">
+
+  <div class="endingVisual">
+    <div class="bird">🐦</div>
+    <div class="fish">🐟</div>
+  </div>
+
+  <div class="endingText">
+
+    <p>We come to therapy looking for answers.</p>
+
+    <p>Sometimes, we leave with acceptance instead.</p>
+
+    <p>Just as the love between the fish and the bird—</p>
+
+    <p>
+      they may love each other deeply,<br>
+      but the bird belongs to the sky,<br>
+      and the fish belongs to the sea.
+    </p>
+
+    <p>
+      Neither is wrong for being what they are.
+    </p>
+
+    <p>
+      Sometimes, love means accepting that two people<br>
+      can love each other and still need different worlds.
+    </p>
+
+  </div>
+
+</div>
 </html>
