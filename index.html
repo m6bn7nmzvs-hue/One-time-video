@@ -279,7 +279,48 @@
         opacity: 1;
       }
     }
-    </style>
+    .recommendations {
+  padding-top: 30px;
+}
+
+.recommendations h2 {
+  font-size: 18px;
+  letter-spacing: 4px;
+  margin-bottom: 25px;
+}
+
+.recommendation-row {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  padding-bottom: 15px;
+  scrollbar-width: none;
+}
+
+.recommendation-row::-webkit-scrollbar {
+  display: none;
+}
+
+.movie-card {
+  flex: 0 0 150px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.movie-card img {
+  width: 150px;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  border-radius: 3px;
+}
+
+.movie-card-title {
+  font-size: 13px;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+  </style>
 </head>
 
 <body>
@@ -333,24 +374,32 @@ type="video/quicktime">
 
     </div>
 
-    <div class="movie-info">
+  <div class="movie-info recommendations">
 
-      <h2>Therapy</h2>
+  <h2>MORE TO WATCH</h2>
 
-      <div class="subtitle">
-        An Original Short Film · Drama · Psychological · 2026
-      </div>
+  <div class="recommendation-row">
 
-      <div class="divider"></div>
+    <a class="movie-card" href="TRAILER_LINK_1" target="_blank">
+      <img src="POSTER_LINK_1" alt="Forever My Girl">
+      <div class="movie-card-title">Forever My Girl</div>
+    </a>
 
-      <div class="description">
-        Sometimes healing doesn't mean forgetting.
-        Sometimes it means learning to live with what happened.
-      </div>
+    <a class="movie-card" href="TRAILER_LINK_2" target="_blank">
+      <img src="POSTER_LINK_2" alt="After We Collided">
+      <div class="movie-card-title">After We Collided</div>
+    </a>
 
-    </div>
+    <a class="movie-card" href="TRAILER_LINK_3" target="_blank">
+      <img src="POSTER_LINK_3" alt="Life in a Year">
+      <div class="movie-card-title">Life in a Year</div>
+    </a>
 
   </div>
+
+</div>
+
+</div>
 
 
   <script>
