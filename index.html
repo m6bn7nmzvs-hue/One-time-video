@@ -2,75 +2,190 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Therapy 101</title>
+  <title>Therapy</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       background: #000;
       color: #fff;
-      font-family: Arial, sans-serif;
-      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
-    .warning {
+    /* INTRO */
+
+    #intro {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      animation: introFade 1.5s ease 3.5s forwards;
+    }
+
+    #intro h1 {
+      font-size: 52px;
+      letter-spacing: 12px;
+      font-weight: 700;
+      opacity: 0;
+      animation: titleReveal 2.5s ease forwards;
+    }
+
+    @keyframes titleReveal {
+      0% {
+        opacity: 0;
+        transform: scale(1.15);
+        letter-spacing: 20px;
+      }
+
+      45% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+        letter-spacing: 12px;
+      }
+    }
+
+    @keyframes introFade {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    /* WARNING */
+
+    #warningScreen {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      text-align: center;
       padding: 30px;
-      box-sizing: border-box;
     }
 
-    h1 {
-      font-size: 42px;
-      letter-spacing: 6px;
-      margin-bottom: 30px;
+    .small-title {
+      font-size: 12px;
+      letter-spacing: 4px;
+      color: #888;
+      margin-bottom: 15px;
     }
 
-    .warning-icon {
-      font-size: 45px;
-      margin-bottom: 20px;
+    #warningScreen h2 {
+      font-size: 32px;
+      letter-spacing: 5px;
+      margin: 0 0 30px;
     }
 
-    p {
-      max-width: 500px;
+    #warningScreen p {
+      max-width: 520px;
+      color: #aaa;
       line-height: 1.7;
-      color: #ccc;
-      font-size: 16px;
+      font-size: 15px;
     }
 
     button {
       margin-top: 30px;
-      padding: 16px 30px;
+      padding: 15px 30px;
       background: #fff;
       color: #000;
       border: none;
-      font-size: 15px;
+      font-size: 13px;
       font-weight: bold;
       letter-spacing: 2px;
       cursor: pointer;
     }
 
+    /* VIDEO PAGE */
+
     #videoSection {
       display: none;
-      padding: 20px;
+      background: #000;
+      min-height: 100vh;
+      padding-bottom: 50px;
+    }
+
+    .movie-title {
+      text-align: center;
+      font-size: 18px;
+      letter-spacing: 5px;
+      padding: 20px 0 10px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .video-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      background: #000;
     }
 
     video {
       width: 100%;
-      max-width: 1000px;
+      max-width: 1100px;
+      display: block;
+    }
+
+    .movie-info {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 28px 25px;
+    }
+
+    .movie-info h2 {
+      margin: 0 0 8px;
+      font-size: 25px;
+    }
+
+    .subtitle {
+      color: #999;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .description {
+      color: #bbb;
+      line-height: 1.7;
+      font-size: 15px;
+      max-width: 650px;
+    }
+
+    .divider {
+      width: 45px;
+      height: 2px;
+      background: #fff;
+      margin: 20px 0;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="warning" id="warningScreen">
-    <div class="warning-icon">⚠️</div>
+  <!-- INTRO -->
 
-    <h1>THERAPY 101</h1>
+  <div id="intro">
+    <h1>THERAPY</h1>
+  </div>
+
+
+  <!-- WARNING -->
+
+  <div id="warningScreen">
+
+    <div class="small-title">PRIVATE SCREENING</div>
+
+    <h2>THERAPY</h2>
 
     <p>
       This video can only be viewed once.
@@ -84,21 +199,55 @@
     </p>
 
     <button onclick="beginViewing()">BEGIN VIEWING</button>
+
   </div>
+
+
+  <!-- VIDEO -->
 
   <div id="videoSection">
-    <video controls playsinline>
-      <source src="https://www.dropbox.com/scl/fi/e8jc4wwd05wmynh7fyffl/Video-29-9-2026-15-01-07.mov?rlkey=wd8lqxrrkarzeiohmdm00a2go&st=00dfhukf&raw=1" 
-    type="video/quicktime">
-      Your browser does not support video playback.
-    </video>
+
+    <div class="movie-title">
+      THERAPY
+    </div>
+
+    <div class="video-wrapper">
+
+      <video controls playsinline>
+        <source src="https://www.dropbox.com/scl/fi/e8jc4wwd05wmynh7fyffl/Video-29-9-2026-15-01-07.mov?rlkey=wd8lqxrrkarzeiohmdm00a2go&st=00dfhukf&raw=1" 
+type="video/quicktime">
+        Your browser does not support video playback.
+      </video>
+
+    </div>
+
+    <div class="movie-info">
+
+      <h2>Therapy</h2>
+
+      <div class="subtitle">
+        An Original Short Film · Drama · Psychological · 2026
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="description">
+        Sometimes healing doesn't mean forgetting.
+        Sometimes it means learning to live with what happened.
+      </div>
+
+    </div>
+
   </div>
 
+
   <script>
+
     function beginViewing() {
       document.getElementById("warningScreen").style.display = "none";
       document.getElementById("videoSection").style.display = "block";
     }
+
   </script>
 
 </body>
