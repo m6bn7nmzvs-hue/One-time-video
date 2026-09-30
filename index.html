@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -349,9 +350,12 @@
   line-height: 1.4;
 }
 .movie-card-title {
-  font-size: 13px;
+  font-size: 14px;
   margin-top: 10px;
   line-height: 1.4;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: bold;
+  letter-spacing: 0.3px;
 }
 #ratingScreen {
   display: none;
@@ -463,7 +467,7 @@ type="video/quicktime">
       <div class="movie-card-title">Life in a Year</div>
       <div class="movie-card-summary">
   A young man discovers that his girlfriend is dying and decides to give her a lifetime of memories in the time they have left.
-</div
+</div>
     </a>
 
   </div>
@@ -503,11 +507,16 @@ type="video/quicktime">
     }
   });
 
-  function rateMovie(stars) {
-    document.getElementById("ratingScreen").innerHTML =
-      "<h1>THERAPY</h1><p>Thank you for watching.</p><p>Rating received: " + stars + " ★</p>";
-  }
-
+ function rateMovie(stars) {
+  document.getElementById("ratingScreen").style.display = "none";
+  document.getElementById("postRatingScreen").style.display = "block";
+  window.scrollTo(0, 0);
+}
+function continueToFinal() {
+  document.getElementById("postRatingScreen").style.display = "none";
+  document.getElementById("finalScreen").style.display = "block";
+  window.scrollTo(0, 0);
+}
 </script>
 
 </body>
@@ -547,10 +556,13 @@ type="video/quicktime">
   </div>
 
 </div>
-<div id="ratingScreen">
+
+</div>
+
 
   <h1>THERAPY</h1>
 
+  <div id="ratingScreen">
   <p>Thank you for watching.</p>
 
   <div class="stars">
@@ -560,7 +572,54 @@ type="video/quicktime">
   <span onclick="rateMovie(4)">★</span>
   <span onclick="rateMovie(5)">★</span>
 </div>
+
 </div>
+
+<div id="postRatingScreen" style="display: none; min-height: 100vh; background: #000; color: #fff; padding: 60px 25px; text-align: center;">
+
+  <div class="recommendations">
+
+    <h2>MORE TO WATCH</h2>
+
+    <div class="recommendation-row">
+
+      <a class="movie-card" href="https://youtu.be/5iEOQn8UUHI?si=Yvcat9SesOY-0G7X" target="_blank">
+        <img src="IMG_1406.jpeg" alt="Forever My Girl">
+        <div class="movie-card-title">Forever My Girl</div>
+        <div class="movie-card-summary">
+          A country music star returns to his hometown and the love he left behind, forcing him to face the life he walked away from.
+        </div>
+      </a>
+
+      <a class="movie-card" href="https://youtu.be/2SvwX3ux_-8?si=MDr9Q8-uU_FmybFJ" target="_blank">
+        <img src="IMG_1408.jpeg" alt="After We Collided">
+        <div class="movie-card-title">After We Collided</div>
+        <div class="movie-card-summary">
+          Tessa and Hardin struggle with love, trust, and the painful consequences of their complicated relationship.
+        </div>
+      </a>
+
+      <a class="movie-card" href="https://youtu.be/IAUufoNOubE?si=OrLW5cTsMo1eYk88" target="_blank">
+        <img src="IMG_1409.jpeg" alt="Life in a Year">
+        <div class="movie-card-title">Life in a Year</div>
+        <div class="movie-card-summary">
+          A young man discovers that his girlfriend is dying and decides to give her a lifetime of memories in the time they have left.
+        </div>
+      </a>
+
+    </div>
+
+  <button onclick="continueToFinal()">CONTINUE</button>
+
+  </div>
+
+</div>
+
+<div id="finalScreen" style="display: none; min-height: 100vh; background: #000; color: #fff; text-align: center; padding: 100px 25px;">
+
+  <h1>THERAPY</h1>
+
+  <p style="color: #999;">Thank you for watching.</p>
 
 </div>
 </html>
