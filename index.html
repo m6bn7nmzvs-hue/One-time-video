@@ -481,6 +481,7 @@ type="video/quicktime">
 
   function beginViewing() {
     document.getElementById("warningScreen").style.display = "none";
+    video.pause();
     document.getElementById("videoSection").style.display = "block";
   }
 
