@@ -467,12 +467,25 @@ type="video/quicktime">
   }
 
   const video = document.querySelector("video");
+  let endingStarted = false;
 
   video.addEventListener("timeupdate", function() {
-    if (video.currentTime >= video.duration - 0.5) {
+    if (
+      video.duration &&
+      video.currentTime >= video.duration - 0.5 &&
+      !endingStarted
+    ) {
+      endingStarted = true;
+
       document.getElementById("videoSection").style.display = "none";
       document.getElementById("endingScreen").style.display = "block";
       window.scrollTo(0, 0);
+
+      setTimeout(function() {
+        document.getElementById("endingScreen").style.display = "none";
+        document.getElementById("ratingScreen").style.display = "block";
+        window.scrollTo(0, 0);
+      }, 67000);
     }
   });
 
@@ -480,12 +493,6 @@ type="video/quicktime">
     document.getElementById("ratingScreen").innerHTML =
       "<h1>THERAPY</h1><p>Thank you for watching.</p><p>Rating received: " + stars + " ★</p>";
   }
-
-  setTimeout(function() {
-    document.getElementById("endingScreen").style.display = "none";
-    document.getElementById("ratingScreen").style.display = "block";
-    window.scrollTo(0, 0);
-  }, 67000);
 
 </script>
 
