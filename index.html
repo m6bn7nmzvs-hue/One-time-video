@@ -389,10 +389,87 @@
 .stars span {
   cursor: pointer;
 }
+  #premiereScreen {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 100;
+}
+
+.premiere-content {
+  width: 90%;
+  max-width: 600px;
+}
+
+.premiere-small {
+  font-size: 12px;
+  letter-spacing: 5px;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.premiere-content h1 {
+  font-size: 52px;
+  letter-spacing: 12px;
+  margin: 0 0 25px;
+}
+
+.premiere-content p {
+  color: #999;
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+#countdown {
+  font-size: 34px;
+  letter-spacing: 4px;
+  font-weight: 300;
+}
+
+.countdown-labels {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 10px;
+  color: #666;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
   </style>
 </head>
 
 <body>
+  <div id="premiereScreen">
+  <div class="premiere-content">
+    <div class="premiere-small">PRIVATE PREMIERE</div>
+
+    <h1>THERAPY</h1>
+
+    <p>The session begins in</p>
+
+    <div id="countdown">
+      <span id="days">00</span>
+      <span>:</span>
+      <span id="hours">00</span>
+      <span>:</span>
+      <span id="minutes">00</span>
+      <span>:</span>
+      <span id="seconds">00</span>
+    </div>
+
+    <div class="countdown-labels">
+      <span>DAYS</span>
+      <span>HOURS</span>
+      <span>MINUTES</span>
+      <span>SECONDS</span>
+    </div>
+  </div>
+</div>
 
   <!-- INTRO -->
 
@@ -481,6 +558,27 @@ type="video/quicktime">
 
 
 <script>
+const premiereDate = new Date("October 4, 2026 22:00:00+02:00").getTime();
+
+const countdownTimer = setInterval(function() {
+  const now = new Date().getTime();
+  const distance = premiereDate - now;
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("days").textContent = String(days).padStart(2, "0");
+  document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+  document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+  document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+
+  if (distance <= 0) {
+    clearInterval(countdownTimer);
+    document.getElementById("premiereScreen").style.display = "none";
+  }
+}, 1000);
 
   function beginViewing() {
     document.getElementById("warningScreen").style.display = "none";
