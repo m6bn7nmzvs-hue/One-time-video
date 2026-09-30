@@ -459,7 +459,7 @@ type="video/quicktime">
 </div>
 
 
-  <script>
+<script>
 
   function beginViewing() {
     document.getElementById("warningScreen").style.display = "none";
@@ -476,15 +476,17 @@ type="video/quicktime">
     }
   });
 
-  setTimeout(function() {
-      function rateMovie(stars) {
+  function rateMovie(stars) {
     document.getElementById("ratingScreen").innerHTML =
       "<h1>THERAPY</h1><p>Thank you for watching.</p><p>Rating received: " + stars + " ★</p>";
   }
+
+  setTimeout(function() {
     document.getElementById("endingScreen").style.display = "none";
     document.getElementById("ratingScreen").style.display = "block";
     window.scrollTo(0, 0);
   }, 67000);
+
 </script>
 
 </body>
