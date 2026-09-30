@@ -348,6 +348,35 @@
   margin-top: 10px;
   line-height: 1.4;
 }
+#ratingScreen {
+  display: none;
+  min-height: 100vh;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 80px 25px;
+}
+
+#ratingScreen h1 {
+  font-size: 42px;
+  letter-spacing: 10px;
+  margin-bottom: 20px;
+}
+
+#ratingScreen p {
+  color: #999;
+  font-size: 15px;
+}
+
+.stars {
+  margin-top: 35px;
+  font-size: 42px;
+  letter-spacing: 8px;
+}
+
+.stars span {
+  cursor: pointer;
+}
   </style>
 </head>
 
@@ -447,6 +476,15 @@ type="video/quicktime">
     }
   });
 
+  setTimeout(function() {
+      function rateMovie(stars) {
+    document.getElementById("ratingScreen").innerHTML =
+      "<h1>THERAPY</h1><p>Thank you for watching.</p><p>Rating received: " + stars + " ★</p>";
+  }
+    document.getElementById("endingScreen").style.display = "none";
+    document.getElementById("ratingScreen").style.display = "block";
+    window.scrollTo(0, 0);
+  }, 67000);
 </script>
 
 </body>
@@ -485,6 +523,20 @@ type="video/quicktime">
 
   </div>
 
+</div>
+<div id="ratingScreen">
+
+  <h1>THERAPY</h1>
+
+  <p>Thank you for watching.</p>
+
+  <div class="stars">
+  <span onclick="rateMovie(1)">★</span>
+  <span onclick="rateMovie(2)">★</span>
+  <span onclick="rateMovie(3)">★</span>
+  <span onclick="rateMovie(4)">★</span>
+  <span onclick="rateMovie(5)">★</span>
+</div>
 </div>
 
 </div>
