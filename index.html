@@ -233,52 +233,80 @@
       }
     }
 
-    .endingText {
-      position: relative;
-      z-index: 2;
-      max-width: 650px;
-      margin: 0 auto;
-      padding-top: 15vh;
-    }
+ .endingText {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  max-width: 650px;
+  transform: translate(-50%, -50%);
+}
+ .endingText p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  margin: 0;
+  transform: translate(-50%, -50%);
+  color: #ddd;
+  font-size: 17px;
+  line-height: 1.8;
+  opacity: 0;
+  animation: textFade 6s ease forwards;
+}
 
-    .endingText p {
-      color: #ddd;
-      font-size: 17px;
-      line-height: 1.8;
-      margin: 0 0 35px;
-      opacity: 0;
-      animation: textFade 2s ease forwards;
-    }
-
-    .endingText p:nth-child(1) {
-      animation-delay: 1s;
-    }
-
-    .endingText p:nth-child(2) {
-      animation-delay: 3s;
-    }
-
-    .endingText p:nth-child(3) {
-      animation-delay: 5s;
-    }
-
-    .endingText p:nth-child(4) {
-      animation-delay: 7s;
-    }
-
-    .endingText p:nth-child(5) {
-      animation-delay: 9s;
-    }
-
-    .endingText p:nth-child(6) {
-      animation-delay: 11s;
-    }
+   .endingText p:nth-child(1) {
+  animation-delay: 1s;
+}
+.endingText p:nth-child(2) {
+  animation-delay: 7s;
+}
+.endingText p:nth-child(3) {
+  animation-delay: 13s;
+}
+.endingText p:nth-child(4) {
+  animation-delay: 19s;
+}
+.endingText p:nth-child(5) {
+  animation-delay: 25s;
+}
+.endingText p:nth-child(6) {
+  animation-delay: 31s;
+}
+.endingText p:nth-child(7) {
+  animation-delay: 37s;
+}
+.endingText p:nth-child(8) {
+  animation-delay: 43s;
+}
+.endingText p:nth-child(9) {
+  animation-delay: 49s;
+}
+.endingText p:nth-child(10) {
+  animation-delay: 55s;
+}
+.endingText p:nth-child(11) {
+  animation-delay: 61s;
+}
 
     @keyframes textFade {
-      to {
-        opacity: 1;
-      }
-    }
+  0% {
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
     .recommendations {
   padding-top: 30px;
 }
@@ -433,28 +461,31 @@ type="video/quicktime">
 
   <div class="endingText">
 
-    <p>We come to therapy looking for answers.</p>
+    <p>We come looking for answers.</p>
 
-    <p>Sometimes, we leave with acceptance instead.</p>
+    <p>Sometimes, we leave with acceptance.</p>
 
-    <p>Just as the love between the fish and the bird—</p>
+    <p>Love doesn't always mean staying.</p>
 
-    <p>
-      they may love each other deeply,<br>
-      but the bird belongs to the sky,<br>
-      and the fish belongs to the sea.
-    </p>
+    <p>Sometimes, two people can love each other deeply...</p>
 
-    <p>
-      Neither is wrong for being what they are.
-    </p>
+    <p>...and still belong to different worlds.</p>
 
-    <p>
-      Sometimes, love means accepting that two people<br>
-      can love each other and still need different worlds.
-    </p>
+    <p>The bird belongs to the sky.</p>
+
+    <p>The fish belongs to the sea.</p>
+
+    <p>Neither is wrong for being what they are.</p>
+
+    <p>Sometimes, love means letting go.</p>
+
+    <p>And accepting what cannot be changed.</p>
+
+    <p>THE SESSION IS OVER.</p>
 
   </div>
+
+</div>
 
 </div>
 </html>
