@@ -610,9 +610,14 @@ const countdownTimer = setInterval(function() {
   });
 
  function rateMovie(stars) {
-  document.getElementById("ratingScreen").style.display = "none";
-  document.getElementById("postRatingScreen").style.display = "block";
-  window.scrollTo(0, 0);
+  document.getElementById("ratingScreen").innerHTML =
+    "<h1>THERAPY</h1><p>Thank you for your review.</p>";
+
+  setTimeout(function() {
+    document.getElementById("ratingScreen").style.display = "none";
+    document.getElementById("postRatingScreen").style.display = "block";
+    window.scrollTo(0, 0);
+  }, 6000);
 }
 function continueToFinal() {
   document.getElementById("postRatingScreen").style.display = "none";
@@ -664,15 +669,22 @@ function continueToFinal() {
 
   <h1>THERAPY</h1>
 
-  <div id="ratingScreen">
+ <div id="ratingScreen">
+
+  <h1>THERAPY</h1>
+
   <p>Thank you for watching.</p>
 
+  <p>How was your experience?</p>
+
   <div class="stars">
-  <span onclick="rateMovie(1)">★</span>
-  <span onclick="rateMovie(2)">★</span>
-  <span onclick="rateMovie(3)">★</span>
-  <span onclick="rateMovie(4)">★</span>
-  <span onclick="rateMovie(5)">★</span>
+    <span onclick="rateMovie(1)">★</span>
+    <span onclick="rateMovie(2)">★</span>
+    <span onclick="rateMovie(3)">★</span>
+    <span onclick="rateMovie(4)">★</span>
+    <span onclick="rateMovie(5)">★</span>
+  </div>
+
 </div>
 
 </div>
