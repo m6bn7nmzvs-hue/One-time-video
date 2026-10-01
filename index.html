@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Therapy</title>
+
   <style>
+
     * {
       box-sizing: border-box;
     }
+
     body {
       margin: 0;
       background: #000;
       color: #fff;
       font-family: Arial, Helvetica, sans-serif;
     }
+
     /* INTRO */
+
     #intro {
       position: fixed;
       inset: 0;
@@ -24,6 +31,7 @@
       z-index: 10;
       animation: introFade 1.5s ease 3.5s forwards;
     }
+
     #intro h1 {
       font-size: 52px;
       letter-spacing: 12px;
@@ -31,340 +39,757 @@
       opacity: 0;
       animation: titleReveal 2.5s ease forwards;
     }
+
     @keyframes titleReveal {
+
       0% {
         opacity: 0;
         transform: scale(1.15);
         letter-spacing: 20px;
       }
+
       45% {
         opacity: 1;
       }
+
       100% {
         opacity: 1;
         transform: scale(1);
         letter-spacing: 12px;
       }
+
     }
+
     @keyframes introFade {
+
       to {
         opacity: 0;
         visibility: hidden;
       }
+
     }
-    <!-- EXPIRED LINK SCREEN -->
 
-<div id="expiredScreen">
 
-  <div class="expired-lock">
-    <div class="lock-body">
-      <div class="lock-shackle"></div>
-      <div class="lock-keyhole"></div>
-    </div>
-  </div>
-
-  <h1>THIS LINK HAS EXPIRED</h1>
-
-  <p>Request a new link to continue.</p>
-
-</div>
     /* WARNING */
+
     #warningScreen {
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 30px 20px;
-  overflow: hidden;
-}
 
-#warningScreen p {
-  width: 100%;
-  max-width: 520px;
-  color: #aaa;
-  line-height: 1.7;
-  font-size: 15px;
-  margin-left: auto;
-  margin-right: auto;
-}
+      min-height: 100vh;
+      width: 100%;
 
-#warningScreen button {
-  align-self: center;
-}
+      display: flex;
+      flex-direction: column;
+
+      justify-content: center;
+      align-items: center;
+
+      text-align: center;
+
+      padding: 40px 20px;
+
+      overflow: hidden;
+
+    }
+
     .small-title {
+
       font-size: 12px;
       letter-spacing: 4px;
+
       color: #888;
+
       margin-bottom: 15px;
+
     }
+
     #warningScreen h2 {
+
       font-size: 32px;
       letter-spacing: 5px;
+
       margin: 0 0 30px;
+
     }
+
     #warningScreen p {
+
+      width: 100%;
       max-width: 520px;
+
       color: #aaa;
+
       line-height: 1.7;
+
       font-size: 15px;
+
+      margin: 0 auto 20px;
+
     }
-    button {
-      margin-top: 30px;
+
+    #warningScreen button {
+
+      margin-top: 15px;
+
       padding: 15px 30px;
+
       background: #fff;
       color: #000;
+
       border: none;
+
       font-size: 13px;
+
       font-weight: bold;
+
       letter-spacing: 2px;
+
       cursor: pointer;
+
+      align-self: center;
+
     }
-    /* VIDEO PAGE */
-    #videoSection {
+
+
+    /* EXPIRED LINK SCREEN */
+
+    #expiredScreen {
+
       display: none;
-      background: #000;
-      min-height: 100vh;
-      padding-bottom: 50px;
-    }
-    .movie-title {
-      text-align: center;
-      font-size: 18px;
-      letter-spacing: 5px;
-      padding: 20px 0 10px;
-      position: relative;
-      z-index: 2;
-    }
-    .video-wrapper {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      background: #000;
-    }
-    video {
-      width: 100%;
-      max-width: 1100px;
-      display: block;
-    }
-    /* RECOMMENDATIONS */
-    .movie-info {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 28px 25px;
-    }
-    .recommendations {
-      padding-top: 30px;
-    }
-    .recommendations h2 {
-      font-size: 18px;
-      letter-spacing: 4px;
-      margin-bottom: 25px;
-    }
-    .recommendation-row {
-      display: flex;
-      gap: 18px;
-      overflow-x: auto;
-      padding-bottom: 15px;
-      scrollbar-width: none;
-    }
-    .recommendation-row::-webkit-scrollbar {
-      display: none;
-    }
-    .movie-card {
-      flex: 0 0 150px;
-      text-decoration: none;
-      color: #fff;
-    }
-    .movie-card img {
-      width: 150px;
-      height: 220px;
-      object-fit: cover;
-      display: block;
-      border-radius: 3px;
-    }
-    .movie-card-title {
-      font-size: 14px;
-      margin-top: 10px;
-      line-height: 1.4;
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight: bold;
-      letter-spacing: 0.3px;
-    }
-    .movie-card-summary {
-      color: #999;
-      font-size: 11px;
-      line-height: 1.5;
-      margin-top: 6px;
-    }
-    /* POST-VIDEO ENDING */
-    #endingScreen {
-      display: none;
-      position: relative;
-      min-height: 100vh;
-      background: #000;
-      color: #fff;
-      overflow: hidden;
-      text-align: center;
-      padding: 60px 25px;
-    }
-    .endingVisual {
-      position: absolute;
+
+      position: fixed;
+
       inset: 0;
-      overflow: hidden;
-      opacity: 0.35;
-      pointer-events: none;
-    }
-    .bird {
-      position: absolute;
-      top: -80px;
-      left: 25%;
-      font-size: 45px;
-      animation: birdMove 12s linear infinite;
-    }
-    .fish {
-      position: absolute;
-      bottom: -80px;
-      right: 25%;
-      font-size: 45px;
-      animation: fishMove 12s linear infinite;
-    }
-    @keyframes birdMove {
-      0% {
-        transform: translateY(0) translateX(0);
-      }
-      50% {
-        transform: translateY(50vh) translateX(80px);
-      }
-      100% {
-        transform: translateY(110vh) translateX(0);
-      }
-    }
-    @keyframes fishMove {
-      0% {
-        transform: translateY(0) translateX(0);
-      }
-      50% {
-        transform: translateY(-50vh) translateX(-80px);
-      }
-      100% {
-        transform: translateY(-110vh) translateX(0);
-      }
-    }
-    .endingText {
-      position: absolute;
-      z-index: 2;
-      top: 50%;
-      left: 50%;
-      width: 90%;
-      max-width: 650px;
-      transform: translate(-50%, -50%);
-    }
-    .endingText p {
-      position: absolute;
-      top: 50%;
-      left: 50%;
+
+      min-height: 100vh;
+
       width: 100%;
-      margin: 0;
-      transform: translate(-50%, -50%);
-      color: #ddd;
-      font-size: 17px;
-      line-height: 1.8;
+
+      background: #000;
+
+      color: #fff;
+
+      justify-content: center;
+
+      align-items: center;
+
+      flex-direction: column;
+
+      text-align: center;
+
+      padding: 30px;
+
+      z-index: 9998;
+
+      overflow: hidden;
+
+    }
+
+
+    /* GIANT GREY CINEMATIC LOCK */
+
+    .expired-lock {
+
+      position: relative;
+
+      width: 150px;
+      height: 175px;
+
+      margin-bottom: 45px;
+
+      filter:
+        drop-shadow(0 0 12px rgba(180,180,180,0.12))
+        drop-shadow(0 0 30px rgba(180,180,180,0.06));
+
+      animation: lockReveal 1.5s ease forwards;
+
       opacity: 0;
+
+    }
+
+
+    .lock-body {
+
+      position: absolute;
+
+      bottom: 0;
+
+      left: 15px;
+
+      width: 120px;
+
+      height: 105px;
+
+      border: 7px solid #777;
+
+      border-radius: 14px;
+
+      background: rgba(255,255,255,0.025);
+
+    }
+
+
+    .lock-shackle {
+
+      position: absolute;
+
+      left: 27px;
+
+      top: -70px;
+
+      width: 66px;
+
+      height: 82px;
+
+      border: 7px solid #777;
+
+      border-bottom: none;
+
+      border-radius: 45px 45px 0 0;
+
+    }
+
+
+    .lock-keyhole {
+
+      position: absolute;
+
+      left: 50%;
+
+      top: 42px;
+
+      transform: translateX(-50%);
+
+      width: 18px;
+
+      height: 28px;
+
+      background: #777;
+
+      border-radius: 50% 50% 40% 40%;
+
+    }
+
+
+    .lock-keyhole::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 8px;
+
+      height: 22px;
+
+      background: #777;
+
+      left: 5px;
+
+      top: 12px;
+
+    }
+
+
+    @keyframes lockReveal {
+
+      0% {
+
+        opacity: 0;
+
+        transform: scale(0.85);
+
+      }
+
+      100% {
+
+        opacity: 1;
+
+        transform: scale(1);
+
+      }
+
+    }
+
+
+    #expiredScreen h1 {
+
+      font-size: 24px;
+
+      letter-spacing: 6px;
+
+      font-weight: 500;
+
+      margin: 0 0 18px;
+
+    }
+
+
+    #expiredScreen p {
+
+      color: #777;
+
+      font-size: 13px;
+
+      letter-spacing: 1px;
+
+      margin: 0;
+
+    }
+
+
+    /* VIDEO PAGE */
+
+    #videoSection {
+
+      display: none;
+
+      background: #000;
+
+      min-height: 100vh;
+
+      padding-bottom: 50px;
+
+    }
+
+
+    .movie-title {
+
+      text-align: center;
+
+      font-size: 18px;
+
+      letter-spacing: 5px;
+
+      padding: 20px 0 10px;
+
+      position: relative;
+
+      z-index: 2;
+
+    }
+
+
+    .video-wrapper {
+
+      width: 100%;
+
+      display: flex;
+
+      justify-content: center;
+
+      background: #000;
+
+    }
+
+
+    video {
+
+      width: 100%;
+
+      max-width: 1100px;
+
+      display: block;
+
+    }
+
+
+    /* RECOMMENDATIONS */
+
+    .movie-info {
+
+      max-width: 900px;
+
+      margin: 0 auto;
+
+      padding: 28px 25px;
+
+    }
+
+
+    .recommendations {
+
+      padding-top: 30px;
+
+    }
+
+
+    .recommendations h2 {
+
+      font-size: 18px;
+
+      letter-spacing: 4px;
+
+      margin-bottom: 25px;
+
+    }
+
+
+    .recommendation-row {
+
+      display: flex;
+
+      gap: 18px;
+
+      overflow-x: auto;
+
+      padding-bottom: 15px;
+
+      scrollbar-width: none;
+
+    }
+
+
+    .recommendation-row::-webkit-scrollbar {
+
+      display: none;
+
+    }
+
+
+    .movie-card {
+
+      flex: 0 0 150px;
+
+      text-decoration: none;
+
+      color: #fff;
+
+    }
+
+
+    .movie-card img {
+
+      width: 150px;
+
+      height: 220px;
+
+      object-fit: cover;
+
+      display: block;
+
+      border-radius: 3px;
+
+    }
+
+
+    .movie-card-title {
+
+      font-size: 14px;
+
+      margin-top: 10px;
+
+      line-height: 1.4;
+
+      font-family: Georgia, "Times New Roman", serif;
+
+      font-weight: bold;
+
+      letter-spacing: 0.3px;
+
+    }
+
+
+    .movie-card-summary {
+
+      color: #999;
+
+      font-size: 11px;
+
+      line-height: 1.5;
+
+      margin-top: 6px;
+
+    }
+
+
+    /* POST-VIDEO ENDING */
+
+    #endingScreen {
+
+      display: none;
+
+      position: relative;
+
+      min-height: 100vh;
+
+      background: #000;
+
+      color: #fff;
+
+      overflow: hidden;
+
+      text-align: center;
+
+      padding: 60px 25px;
+
+    }
+
+
+    .endingVisual {
+
+      position: absolute;
+
+      inset: 0;
+
+      overflow: hidden;
+
+      opacity: 0.35;
+
+      pointer-events: none;
+
+    }
+
+
+    .bird {
+
+      position: absolute;
+
+      top: -80px;
+
+      left: 25%;
+
+      font-size: 45px;
+
+      animation: birdMove 12s linear infinite;
+
+    }
+
+
+    .fish {
+
+      position: absolute;
+
+      bottom: -80px;
+
+      right: 25%;
+
+      font-size: 45px;
+
+      animation: fishMove 12s linear infinite;
+
+    }
+
+
+    @keyframes birdMove {
+
+      0% {
+
+        transform: translateY(0) translateX(0);
+
+      }
+
+      50% {
+
+        transform: translateY(50vh) translateX(80px);
+
+      }
+
+      100% {
+
+        transform: translateY(110vh) translateX(0);
+
+      }
+
+    }
+
+
+    @keyframes fishMove {
+
+      0% {
+
+        transform: translateY(0) translateX(0);
+
+      }
+
+      50% {
+
+        transform: translateY(-50vh) translateX(-80px);
+
+      }
+
+      100% {
+
+        transform: translateY(-110vh) translateX(0);
+
+      }
+
+    }
+
+
+    .endingText {
+
+      position: absolute;
+
+      z-index: 2;
+
+      top: 50%;
+
+      left: 50%;
+
+      width: 90%;
+
+      max-width: 650px;
+
+      transform: translate(-50%, -50%);
+
+    }
+
+
+    .endingText p {
+
+      position: absolute;
+
+      top: 50%;
+
+      left: 50%;
+
+      width: 100%;
+
+      margin: 0;
+
+      transform: translate(-50%, -50%);
+
+      color: #ddd;
+
+      font-size: 17px;
+
+      line-height: 1.8;
+
+      opacity: 0;
+
       animation: textFade 6s ease forwards;
+
     }
-    .endingText p:nth-child(1) {
-      animation-delay: 1s;
-    }
-    .endingText p:nth-child(2) {
-      animation-delay: 7s;
-    }
-    .endingText p:nth-child(3) {
-      animation-delay: 13s;
-    }
-    .endingText p:nth-child(4) {
-      animation-delay: 19s;
-    }
-    .endingText p:nth-child(5) {
-      animation-delay: 25s;
-    }
-    .endingText p:nth-child(6) {
-      animation-delay: 31s;
-    }
-    .endingText p:nth-child(7) {
-      animation-delay: 37s;
-    }
-    .endingText p:nth-child(8) {
-      animation-delay: 43s;
-    }
-    .endingText p:nth-child(9) {
-      animation-delay: 49s;
-    }
-    .endingText p:nth-child(10) {
-      animation-delay: 55s;
-    }
-    .endingText p:nth-child(11) {
-      animation-delay: 61s;
-    }
+
+
+    .endingText p:nth-child(1) { animation-delay: 1s; }
+    .endingText p:nth-child(2) { animation-delay: 7s; }
+    .endingText p:nth-child(3) { animation-delay: 13s; }
+    .endingText p:nth-child(4) { animation-delay: 19s; }
+    .endingText p:nth-child(5) { animation-delay: 25s; }
+    .endingText p:nth-child(6) { animation-delay: 31s; }
+    .endingText p:nth-child(7) { animation-delay: 37s; }
+    .endingText p:nth-child(8) { animation-delay: 43s; }
+    .endingText p:nth-child(9) { animation-delay: 49s; }
+    .endingText p:nth-child(10) { animation-delay: 55s; }
+    .endingText p:nth-child(11) { animation-delay: 61s; }
+
+
     @keyframes textFade {
+
       0% {
         opacity: 0;
       }
+
       15% {
         opacity: 1;
       }
+
       80% {
         opacity: 1;
       }
+
       100% {
         opacity: 0;
       }
+
     }
+
+
     /* RATING */
+
     #ratingScreen {
+
       display: none;
+
       min-height: 100vh;
+
       background: #000;
+
       color: #fff;
+
       text-align: center;
+
       padding: 80px 25px;
+
     }
+
+
     #ratingScreen h1 {
+
       font-size: 42px;
+
       letter-spacing: 10px;
+
       margin-bottom: 20px;
+
     }
+
+
     #ratingScreen p {
+
       color: #999;
+
       font-size: 15px;
+
     }
+
+
     .stars {
+
       margin-top: 35px;
+
       font-size: 42px;
+
       letter-spacing: 8px;
+
     }
+
+
     .stars span {
+
       cursor: pointer;
+
     }
+
+
     /* PREMIERE */
+
     #premiereScreen {
+
       position: fixed;
+
       inset: 0;
-      background: url("./IMG_1436.jpeg") center center / cover no-repeat;
+
+      background:
+        url("./IMG_1436.jpeg")
+        center center /
+        cover no-repeat;
+
       color: #fff;
+
       display: flex;
+
       justify-content: center;
+
       align-items: flex-end;
+
       text-align: center;
+
       z-index: 100;
+
       overflow: hidden;
+
     }
-    /* CINEMATIC DARK OVERLAY */
+
+
     #premiereScreen::before {
+
       content: "";
+
       position: absolute;
+
       inset: 0;
+
       background:
         linear-gradient(
           to bottom,
@@ -373,94 +798,201 @@
           rgba(0,0,0,0.45) 70%,
           rgba(0,0,0,0.85) 100%
         );
+
       z-index: 0;
+
       pointer-events: none;
+
     }
+
+
     .premiere-content {
+
       position: relative;
+
       z-index: 1;
+
       width: 90%;
+
       max-width: 500px;
+
       padding-bottom: calc(11vh + 0.5cm);
+
       transform: translateX(-1.5cm);
+
     }
+
+
     .premiere-small {
+
       font-size: 9px;
+
       letter-spacing: 4px;
+
       color: rgba(255,255,255,0.72);
+
       margin-bottom: 10px;
+
     }
+
+
     .premiere-content h1 {
+
       font-size: 34px;
+
       letter-spacing: 9px;
+
       font-weight: 600;
+
       margin: 0 0 14px;
-      text-shadow: 0 2px 15px rgba(0,0,0,0.65);
+
+      text-shadow:
+        0 2px 15px rgba(0,0,0,0.65);
+
     }
+
+
     .premiere-content p {
+
       color: rgba(255,255,255,0.72);
+
       font-size: 12px;
+
       margin-bottom: 12px;
+
       letter-spacing: 1px;
+
     }
+
+
     #countdown {
+
       font-size: 22px;
+
       letter-spacing: 3px;
+
       font-weight: 300;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.7);
+
+      text-shadow:
+        0 2px 12px rgba(0,0,0,0.7);
+
     }
+
+
     .countdown-labels {
+
       display: flex;
+
       justify-content: center;
+
       gap: 18px;
+
       margin-top: 7px;
+
       color: rgba(255,255,255,0.55);
+
       font-size: 7px;
+
       letter-spacing: 1.5px;
+
     }
+
+
     /* POST RATING */
+
     #postRatingScreen {
+
       display: none;
+
       min-height: 100vh;
+
       background: #000;
+
       color: #fff;
+
       padding: 60px 25px;
+
       text-align: center;
+
     }
+
+
     /* FINAL SCREEN */
+
     #finalScreen {
+
       display: none;
+
       position: fixed;
+
       inset: 0;
+
       min-height: 100vh;
+
       background: #000;
+
       color: #fff;
+
       text-align: center;
+
       justify-content: center;
+
       align-items: center;
+
       flex-direction: column;
+
       z-index: 9999;
+
     }
+
+
     #finalScreen h1 {
+
       margin: 0 0 15px;
+
       font-size: 42px;
+
       letter-spacing: 10px;
+
     }
+
+
     #finalScreen p {
+
       margin: 0;
+
       color: #999;
+
       font-size: 15px;
+
     }
+
   </style>
+
 </head>
+
+
 <body>
+
+
   <!-- PREMIERE -->
+
   <div id="premiereScreen">
+
     <div class="premiere-content">
-      <div class="premiere-small">PRIVATE PREMIERE</div>
+
+      <div class="premiere-small">
+        PRIVATE PREMIERE
+      </div>
+
       <h1>THERAPY</h1>
-      <p>The session begins in</p>
+
+      <p>
+        The session begins in
+      </p>
+
       <div id="countdown">
+
         <span id="days">00</span>
         <span>:</span>
         <span id="hours">00</span>
@@ -468,264 +1000,655 @@
         <span id="minutes">00</span>
         <span>:</span>
         <span id="seconds">00</span>
+
       </div>
+
       <div class="countdown-labels">
+
         <span>DAYS</span>
         <span>HOURS</span>
         <span>MINUTES</span>
         <span>SECONDS</span>
+
       </div>
+
     </div>
+
   </div>
+
+
   <!-- INTRO -->
+
   <div id="intro">
+
     <h1>THERAPY</h1>
+
   </div>
+
+
   <!-- WARNING -->
+
   <div id="warningScreen">
-    <div class="small-title">PRIVATE SCREENING</div>
-    <h2>THERAPY</h2>
+
+    <div class="small-title">
+      PRIVATE SCREENING
+    </div>
+
+    <h2>
+      THERAPY
+    </h2>
+
     <p>
       This video can only be viewed once.
       Once you continue and start the video,
       your viewing session will begin.
     </p>
+
     <p>
       For the best experience, use earphones or AirPods
       and rotate your phone to landscape.
     </p>
-    <button onclick="beginViewing()">BEGIN VIEWING</button>
+
+    <button onclick="beginViewing()">
+      BEGIN VIEWING
+    </button>
+
   </div>
+
+
+  <!-- EXPIRED -->
+
+  <div id="expiredScreen">
+
+    <div class="expired-lock">
+
+      <div class="lock-body">
+
+        <div class="lock-shackle"></div>
+
+        <div class="lock-keyhole"></div>
+
+      </div>
+
+    </div>
+
+    <h1>
+      THIS LINK HAS EXPIRED
+    </h1>
+
+    <p>
+      Request a new link to continue.
+    </p>
+
+  </div>
+
+
   <!-- VIDEO -->
+
   <div id="videoSection">
+
     <div class="movie-title">
       THERAPY
     </div>
+
     <div class="video-wrapper">
+
       <video controls playsinline>
+
         <source
           src="https://www.dropbox.com/scl/fi/e8jc4wwd05wmynh7fyffl/Video-29-9-2026-15-01-07.mov?rlkey=wd8lqxrrkarzeiohmdm00a2go&st=00dfhukf&raw=1"
           type="video/quicktime">
+
         Your browser does not support video playback.
+
       </video>
+
     </div>
+
+
     <!-- MORE TO WATCH -->
+
     <div class="movie-info recommendations">
-      <h2>MORE TO WATCH</h2>
+
+      <h2>
+        MORE TO WATCH
+      </h2>
+
       <div class="recommendation-row">
+
+
         <a
           class="movie-card"
           href="https://youtu.be/5iEOQn8UUHI?si=Yvcat9SesOY-0G7X"
           target="_blank">
-          <img src="IMG_1406.jpeg" alt="Forever My Girl">
+
+          <img
+            src="IMG_1406.jpeg"
+            alt="Forever My Girl">
+
           <div class="movie-card-title">
             Forever My Girl
           </div>
+
           <div class="movie-card-summary">
             A country music star returns to his hometown and the love he left behind, forcing him to face the life he walked away from.
           </div>
+
         </a>
+
+
         <a
           class="movie-card"
           href="https://youtu.be/2SvwX3ux_-8?si=MDr9Q8-uU_FmybFJ"
           target="_blank">
-          <img src="IMG_1408.jpeg" alt="After We Collided">
+
+          <img
+            src="IMG_1408.jpeg"
+            alt="After We Collided">
+
           <div class="movie-card-title">
             After We Collided
           </div>
+
           <div class="movie-card-summary">
             Tessa and Hardin struggle with love, trust, and the painful consequences of their complicated relationship.
           </div>
+
         </a>
+
+
         <a
           class="movie-card"
           href="https://youtu.be/IAUufoNOubE?si=OrLW5cTsMo1eYk88"
           target="_blank">
-          <img src="IMG_1409.jpeg" alt="Life in a Year">
+
+          <img
+            src="IMG_1409.jpeg"
+            alt="Life in a Year">
+
           <div class="movie-card-title">
             Life in a Year
           </div>
+
           <div class="movie-card-summary">
             A young man discovers that his girlfriend is dying and decides to give her a lifetime of memories in the time they have left.
           </div>
+
         </a>
+
+
       </div>
+
     </div>
+
   </div>
-  <!-- POST-VIDEO ENDING -->
+
+
+  <!-- POST VIDEO -->
+
   <div id="endingScreen">
+
     <div class="endingVisual">
-      <div class="bird">🐦</div>
-      <div class="fish">🐟</div>
+
+      <div class="bird">
+        🐦
+      </div>
+
+      <div class="fish">
+        🐟
+      </div>
+
     </div>
+
+
     <div class="endingText">
-      <p>We come looking for answers.</p>
-      <p>Sometimes, we leave with acceptance.</p>
-      <p>Love doesn't always mean staying.</p>
-      <p>Sometimes, two people can love each other deeply...</p>
-      <p>...and still belong to different worlds.</p>
-      <p>The bird belongs to the sky.</p>
-      <p>The fish belongs to the sea.</p>
-      <p>Neither is wrong for being what they are.</p>
-      <p>Sometimes, love means letting go.</p>
-      <p>And accepting what cannot be changed.</p>
-      <p>THE SESSION IS OVER.</p>
+
+      <p>
+        We come looking for answers.
+      </p>
+
+      <p>
+        Sometimes, we leave with acceptance.
+      </p>
+
+      <p>
+        Love doesn't always mean staying.
+      </p>
+
+      <p>
+        Sometimes, two people can love each other deeply...
+      </p>
+
+      <p>
+        ...and still belong to different worlds.
+      </p>
+
+      <p>
+        The bird belongs to the sky.
+      </p>
+
+      <p>
+        The fish belongs to the sea.
+      </p>
+
+      <p>
+        Neither is wrong for being what they are.
+      </p>
+
+      <p>
+        Sometimes, love means letting go.
+      </p>
+
+      <p>
+        And accepting what cannot be changed.
+      </p>
+
+      <p>
+        THE SESSION IS OVER.
+      </p>
+
     </div>
+
   </div>
+
+
   <!-- RATING -->
+
   <div id="ratingScreen">
-    <h1>THERAPY</h1>
-    <p>Thank you for watching.</p>
-    <p>How was your experience?</p>
+
+    <h1>
+      THERAPY
+    </h1>
+
+    <p>
+      Thank you for watching.
+    </p>
+
+    <p>
+      How was your experience?
+    </p>
+
     <div class="stars">
+
       <span onclick="rateMovie(1)">★</span>
       <span onclick="rateMovie(2)">★</span>
       <span onclick="rateMovie(3)">★</span>
       <span onclick="rateMovie(4)">★</span>
       <span onclick="rateMovie(5)">★</span>
+
     </div>
+
   </div>
+
+
   <!-- AFTER RATING -->
+
   <div id="postRatingScreen">
+
     <div class="recommendations">
-      <h2>MORE TO WATCH</h2>
+
+      <h2>
+        MORE TO WATCH
+      </h2>
+
       <div class="recommendation-row">
+
+
         <a
           class="movie-card"
           href="https://youtu.be/5iEOQn8UUHI?si=Yvcat9SesOY-0G7X"
           target="_blank">
-          <img src="IMG_1406.jpeg" alt="Forever My Girl">
+
+          <img
+            src="IMG_1406.jpeg"
+            alt="Forever My Girl">
+
           <div class="movie-card-title">
             Forever My Girl
           </div>
+
           <div class="movie-card-summary">
             A country music star returns to his hometown and the love he left behind, forcing him to face the life he walked away from.
           </div>
+
         </a>
+
+
         <a
           class="movie-card"
           href="https://youtu.be/2SvwX3ux_-8?si=MDr9Q8-uU_FmybFJ"
           target="_blank">
-          <img src="IMG_1408.jpeg" alt="After We Collided">
+
+          <img
+            src="IMG_1408.jpeg"
+            alt="After We Collided">
+
           <div class="movie-card-title">
             After We Collided
           </div>
+
           <div class="movie-card-summary">
             Tessa and Hardin struggle with love, trust, and the painful consequences of their complicated relationship.
           </div>
+
         </a>
+
+
         <a
           class="movie-card"
           href="https://youtu.be/IAUufoNOubE?si=OrLW5cTsMo1eYk88"
           target="_blank">
-          <img src="IMG_1409.jpeg" alt="Life in a Year">
+
+          <img
+            src="IMG_1409.jpeg"
+            alt="Life in a Year">
+
           <div class="movie-card-title">
             Life in a Year
           </div>
+
           <div class="movie-card-summary">
             A young man discovers that his girlfriend is dying and decides to give her a lifetime of memories in the time they have left, while learning what it means to truly love someone.
           </div>
+
         </a>
+
+
       </div>
-      <button onclick="continueToFinal()">CONTINUE</button>
+
+
+      <button onclick="continueToFinal()">
+        CONTINUE
+      </button>
+
     </div>
+
   </div>
+
+
   <!-- FINAL -->
+
   <div id="finalScreen">
-    <h1>THERAPY</h1>
-    <p>Thank you for watching.</p>
+
+    <h1>
+      THERAPY
+    </h1>
+
+    <p>
+      Thank you for watching.
+    </p>
+
   </div>
+
+
   <!-- JAVASCRIPT -->
+
   <script>
-    /* TEST COUNTDOWN
-       5 minutes from the moment the page loads.
-       Change this later for the real premiere.
-    */
-    const premiereDate = new Date().getTime();
-    const countdownTimer = setInterval(function() {
-      const now = new Date().getTime();
-      const distance = premiereDate - now;
-      const days = Math.floor(
-        distance / (1000 * 60 * 60 * 24)
+
+
+    /* TEST MODE */
+
+    const premiereDate =
+      new Date().getTime();
+
+
+    const countdownTimer =
+      setInterval(function() {
+
+
+        const now =
+          new Date().getTime();
+
+
+        const distance =
+          premiereDate - now;
+
+
+        const days =
+          Math.floor(
+            distance /
+            (1000 * 60 * 60 * 24)
+          );
+
+
+        const hours =
+          Math.floor(
+            (distance %
+              (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
+          );
+
+
+        const minutes =
+          Math.floor(
+            (distance %
+              (1000 * 60 * 60)) /
+            (1000 * 60)
+          );
+
+
+        const seconds =
+          Math.floor(
+            (distance %
+              (1000 * 60)) /
+            1000
+          );
+
+
+        document.getElementById("days").textContent =
+          String(days).padStart(2, "0");
+
+
+        document.getElementById("hours").textContent =
+          String(hours).padStart(2, "0");
+
+
+        document.getElementById("minutes").textContent =
+          String(minutes).padStart(2, "0");
+
+
+        document.getElementById("seconds").textContent =
+          String(seconds).padStart(2, "0");
+
+
+        if (distance <= 0) {
+
+          clearInterval(countdownTimer);
+
+          document.getElementById(
+            "premiereScreen"
+          ).style.display = "none";
+
+        }
+
+
+      }, 1000);
+
+
+
+    /* ONE-TIME VIEWING */
+
+    const viewingUsed =
+      localStorage.getItem(
+        "therapyViewingUsed"
       );
-      const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) /
-        (1000 * 60 * 60)
-      );
-      const minutes = Math.floor(
-        (distance % (1000 * 60 * 60)) /
-        (1000 * 60)
-      );
-      const seconds = Math.floor(
-        (distance % (1000 * 60)) /
-        1000
-      );
-      document.getElementById("days").textContent =
-        String(days).padStart(2, "0");
-      document.getElementById("hours").textContent =
-        String(hours).padStart(2, "0");
-      document.getElementById("minutes").textContent =
-        String(minutes).padStart(2, "0");
-      document.getElementById("seconds").textContent =
-        String(seconds).padStart(2, "0");
-      if (distance <= 0) {
-        clearInterval(countdownTimer);
-        document.getElementById("premiereScreen").style.display =
-          "none";
-      }
-    }, 1000);
+
+
+    if (viewingUsed === "true") {
+
+      document.getElementById(
+        "warningScreen"
+      ).style.display = "none";
+
+
+      document.getElementById(
+        "expiredScreen"
+      ).style.display = "flex";
+
+    }
+
+
+
     /* VIDEO */
-    const video = document.querySelector("video");
-    let endingStarted = false;
+
+    const video =
+      document.querySelector("video");
+
+
+    let endingStarted =
+      false;
+
+
+
+    /* BEGIN VIEWING */
+
     function beginViewing() {
-      document.getElementById("warningScreen").style.display =
-        "none";
+
+
+      /* LOCK THE VIEWING IMMEDIATELY */
+
+      localStorage.setItem(
+        "therapyViewingUsed",
+        "true"
+      );
+
+
+      document.getElementById(
+        "warningScreen"
+      ).style.display = "none";
+
+
       video.pause();
-      document.getElementById("videoSection").style.display =
-        "block";
+
+
+      document.getElementById(
+        "videoSection"
+      ).style.display = "block";
+
+
     }
-    /* WHEN VIDEO ENDS */
-    video.addEventListener("timeupdate", function() {
-      if (
-        video.duration &&
-        video.currentTime >= video.duration - 0.5 &&
-        !endingStarted
-      ) {
-        endingStarted = true;
-        document.getElementById("videoSection").style.display =
-          "none";
-        document.getElementById("endingScreen").style.display =
-          "block";
-        window.scrollTo(0, 0);
-        setTimeout(function() {
-          document.getElementById("endingScreen").style.display =
-            "none";
-          document.getElementById("ratingScreen").style.display =
-            "block";
+
+
+
+    /* VIDEO END */
+
+    video.addEventListener(
+      "timeupdate",
+      function() {
+
+
+        if (
+
+          video.duration &&
+
+          video.currentTime >=
+          video.duration - 0.5 &&
+
+          !endingStarted
+
+        ) {
+
+
+          endingStarted = true;
+
+
+          document.getElementById(
+            "videoSection"
+          ).style.display = "none";
+
+
+          document.getElementById(
+            "endingScreen"
+          ).style.display = "block";
+
+
           window.scrollTo(0, 0);
-        }, 67000);
+
+
+          setTimeout(function() {
+
+
+            document.getElementById(
+              "endingScreen"
+            ).style.display = "none";
+
+
+            document.getElementById(
+              "ratingScreen"
+            ).style.display = "block";
+
+
+            window.scrollTo(0, 0);
+
+
+          }, 67000);
+
+
+        }
+
       }
-    });
+    );
+
+
+
     /* RATING */
+
     function rateMovie(stars) {
-      document.getElementById("ratingScreen").innerHTML =
-        "<h1>THERAPY</h1><p>Thank you for your review.</p>";
+
+
+      document.getElementById(
+        "ratingScreen"
+      ).innerHTML =
+
+        "<h1>THERAPY</h1>" +
+
+        "<p>Thank you for your review.</p>";
+
+
       setTimeout(function() {
-        document.getElementById("ratingScreen").style.display =
-          "none";
-        document.getElementById("postRatingScreen").style.display =
-          "block";
+
+
+        document.getElementById(
+          "ratingScreen"
+        ).style.display = "none";
+
+
+        document.getElementById(
+          "postRatingScreen"
+        ).style.display = "block";
+
+
         window.scrollTo(0, 0);
+
+
       }, 6000);
+
+
     }
+
+
+
     /* FINAL SCREEN */
+
     function continueToFinal() {
-      document.getElementById("postRatingScreen").style.display =
-        "none";
-      document.getElementById("finalScreen").style.display =
-        "flex";
+
+
+      document.getElementById(
+        "postRatingScreen"
+      ).style.display = "none";
+
+
+      document.getElementById(
+        "finalScreen"
+      ).style.display = "flex";
+
+
       window.scrollTo(0, 0);
+
     }
+
+
   </script>
+
 </body>
 </html>
