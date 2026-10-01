@@ -1386,13 +1386,16 @@
   <script>
 
 
-    /* TEST MODE */
+    /* ==========================================
+       PREMIERE COUNTDOWN
+       TEST MODE: 30 MINUTES FROM PAGE LOAD
+       ========================================== */
 
     const premiereDate =
-      new Date().getTime() + (5 * 60 * 1000);
+      new Date().getTime() + (30 * 60 * 1000);
 
 
-    const countdownTimer =
+    const premiereTimer =
       setInterval(function() {
 
 
@@ -1404,60 +1407,143 @@
           premiereDate - now;
 
 
-        const days =
-          Math.floor(
-            distance /
-            (1000 * 60 * 60 * 24)
-          );
+        if (distance > 0) {
+
+          const days =
+            Math.floor(
+              distance /
+              (1000 * 60 * 60 * 24)
+            );
 
 
-        const hours =
-          Math.floor(
-            (distance %
-              (1000 * 60 * 60 * 24)) /
-            (1000 * 60 * 60)
-          );
+          const hours =
+            Math.floor(
+              (distance %
+                (1000 * 60 * 60 * 24)) /
+              (1000 * 60 * 60)
+            );
 
 
-        const minutes =
-          Math.floor(
-            (distance %
-              (1000 * 60 * 60)) /
-            (1000 * 60)
-          );
+          const minutes =
+            Math.floor(
+              (distance %
+                (1000 * 60 * 60)) /
+              (1000 * 60)
+            );
 
 
-        const seconds =
-          Math.floor(
-            (distance %
-              (1000 * 60)) /
-            1000
-          );
+          const seconds =
+            Math.floor(
+              (distance %
+                (1000 * 60)) /
+              1000
+            );
 
 
-        document.getElementById("days").textContent =
-          String(days).padStart(2, "0");
+          document.getElementById("days").textContent =
+            String(days).padStart(2, "0");
 
 
-        document.getElementById("hours").textContent =
-          String(hours).padStart(2, "0");
+          document.getElementById("hours").textContent =
+            String(hours).padStart(2, "0");
 
 
-        document.getElementById("minutes").textContent =
-          String(minutes).padStart(2, "0");
+          document.getElementById("minutes").textContent =
+            String(minutes).padStart(2, "0");
 
 
-        document.getElementById("seconds").textContent =
-          String(seconds).padStart(2, "0");
+          document.getElementById("seconds").textContent =
+            String(seconds).padStart(2, "0");
 
+        }
+
+
+        /* ==========================================
+           PREMIERE FINISHED
+           START EXISTING 5-MINUTE COUNTDOWN
+           ========================================== */
 
         if (distance <= 0) {
 
-          clearInterval(countdownTimer);
+          clearInterval(premiereTimer);
 
-          document.getElementById(
-            "premiereScreen"
-          ).style.display = "none";
+
+          const premiereDate =
+            new Date().getTime() + (5 * 60 * 1000);
+
+
+          const countdownTimer =
+            setInterval(function() {
+
+
+              const now =
+                new Date().getTime();
+
+
+              const distance =
+                premiereDate - now;
+
+
+              const days =
+                Math.floor(
+                  distance /
+                  (1000 * 60 * 60 * 24)
+                );
+
+
+              const hours =
+                Math.floor(
+                  (distance %
+                    (1000 * 60 * 60 * 24)) /
+                  (1000 * 60 * 60)
+                );
+
+
+              const minutes =
+                Math.floor(
+                  (distance %
+                    (1000 * 60 * 60)) /
+                  (1000 * 60)
+                );
+
+
+              const seconds =
+                Math.floor(
+                  (distance %
+                    (1000 * 60)) /
+                  1000
+                );
+
+
+              document.getElementById("days").textContent =
+                String(days).padStart(2, "0");
+
+
+              document.getElementById("hours").textContent =
+                String(hours).padStart(2, "0");
+
+
+              document.getElementById("minutes").textContent =
+                String(minutes).padStart(2, "0");
+
+
+              document.getElementById("seconds").textContent =
+                String(seconds).padStart(2, "0");
+
+
+              if (distance <= 0) {
+
+                clearInterval(countdownTimer);
+
+
+                document.getElementById(
+                  "premiereScreen"
+                ).style.display = "none";
+
+              }
+
+
+            }, 1000);
 
         }
 
@@ -1466,57 +1552,60 @@
 
 
 
-    /* UNIQUE VIEWING LINK */
+    /* ==========================================
+       UNIQUE VIEWING LINK
+       ========================================== */
 
-const linkCode =
-  new URLSearchParams(window.location.search).get("link");
-
-const validLinks = [
-  "THERAPY01",
-  "THERAPY02",
-  "THERAPY03",
-  "THERAPY04",
-  "THERAPY05",
-  "THERAPY06",
-  "THERAPY07",
-  "THERAPY08",
-  "THERAPY09",
-  "THERAPY10"
-];
+    const linkCode =
+      new URLSearchParams(window.location.search).get("link");
 
 
-if (!validLinks.includes(linkCode)) {
-
-  document.getElementById(
-    "warningScreen"
-  ).style.display = "none";
-
-  document.getElementById(
-    "expiredScreen"
-  ).style.display = "flex";
-
-}
-
-
-const viewingKey =
-  "therapyViewingUsed_" + linkCode;
+    const validLinks = [
+      "THERAPY01",
+      "THERAPY02",
+      "THERAPY03",
+      "THERAPY04",
+      "THERAPY05",
+      "THERAPY06",
+      "THERAPY07",
+      "THERAPY08",
+      "THERAPY09",
+      "THERAPY10"
+    ];
 
 
-if (
-  linkCode &&
-  validLinks.includes(linkCode) &&
-  localStorage.getItem(viewingKey) === "true"
-) {
+    if (!validLinks.includes(linkCode)) {
 
-  document.getElementById(
-    "warningScreen"
-  ).style.display = "none";
+      document.getElementById(
+        "warningScreen"
+      ).style.display = "none";
 
-  document.getElementById(
-    "expiredScreen"
-  ).style.display = "flex";
+      document.getElementById(
+        "expiredScreen"
+      ).style.display = "flex";
 
-}
+    }
+
+
+    const viewingKey =
+      "therapyViewingUsed_" + linkCode;
+
+
+    if (
+      linkCode &&
+      validLinks.includes(linkCode) &&
+      localStorage.getItem(viewingKey) === "true"
+    ) {
+
+      document.getElementById(
+        "warningScreen"
+      ).style.display = "none";
+
+      document.getElementById(
+        "expiredScreen"
+      ).style.display = "flex";
+
+    }
 
 
 
@@ -1535,24 +1624,27 @@ if (
 
     function beginViewing() {
 
-  /* LOCK THIS SPECIFIC LINK IMMEDIATELY */
+      /* LOCK THIS SPECIFIC LINK IMMEDIATELY */
 
-  localStorage.setItem(
-    viewingKey,
-    "true"
-  );
+      localStorage.setItem(
+        viewingKey,
+        "true"
+      );
 
-  document.getElementById(
-    "warningScreen"
-  ).style.display = "none";
 
-  video.pause();
+      document.getElementById(
+        "warningScreen"
+      ).style.display = "none";
 
-  document.getElementById(
-    "videoSection"
-  ).style.display = "block";
 
-}
+      video.pause();
+
+
+      document.getElementById(
+        "videoSection"
+      ).style.display = "block";
+
+    }
 
 
 
