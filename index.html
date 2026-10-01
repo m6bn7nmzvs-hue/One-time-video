@@ -619,11 +619,17 @@ const countdownTimer = setInterval(function() {
     window.scrollTo(0, 0);
   }, 6000);
 }
-function continueToFinal() {
-  document.getElementById("postRatingScreen").style.display = "none";
-  document.getElementById("finalScreen").style.display = "flex";
-  window.scrollTo(0, 0);
-}
+<div id="finalScreen" style="display: none; position: fixed; inset: 0; background: #000; color: #fff; text-align: center; justify-content: center; align-items: center; flex-direction: column; z-index: 9999;">
+
+  <h1 style="margin: 0 0 15px; font-size: 42px; letter-spacing: 10px;">
+    THERAPY
+  </h1>
+
+  <p style="margin: 0; color: #999; font-size: 15px;">
+    Thank you for watching.
+  </p>
+
+</div>
 </script>
 
 </body>
