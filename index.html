@@ -137,38 +137,67 @@
       display: block;
     }
 
+    /* RECOMMENDATIONS */
+
     .movie-info {
       max-width: 900px;
       margin: 0 auto;
       padding: 28px 25px;
     }
 
-    .movie-info h2 {
-      margin: 0 0 8px;
-      font-size: 25px;
+    .recommendations {
+      padding-top: 30px;
     }
 
-    .subtitle {
-      color: #999;
+    .recommendations h2 {
+      font-size: 18px;
+      letter-spacing: 4px;
+      margin-bottom: 25px;
+    }
+
+    .recommendation-row {
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      padding-bottom: 15px;
+      scrollbar-width: none;
+    }
+
+    .recommendation-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .movie-card {
+      flex: 0 0 150px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .movie-card img {
+      width: 150px;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      border-radius: 3px;
+    }
+
+    .movie-card-title {
       font-size: 14px;
-      margin-bottom: 15px;
+      margin-top: 10px;
+      line-height: 1.4;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: bold;
+      letter-spacing: 0.3px;
     }
 
-    .description {
-      color: #bbb;
-      line-height: 1.7;
-      font-size: 15px;
-      max-width: 650px;
+    .movie-card-summary {
+      color: #999;
+      font-size: 11px;
+      line-height: 1.5;
+      margin-top: 6px;
     }
 
-    .divider {
-      width: 45px;
-      height: 2px;
-      background: #fff;
-      margin: 20px 0;
-    }
-  
-      /* POST-VIDEO ENDING */
+    /* POST-VIDEO ENDING */
 
     #endingScreen {
       display: none;
@@ -233,242 +262,255 @@
       }
     }
 
- .endingText {
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  left: 50%;
-  width: 90%;
-  max-width: 650px;
-  transform: translate(-50%, -50%);
-}
- .endingText p {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  margin: 0;
-  transform: translate(-50%, -50%);
-  color: #ddd;
-  font-size: 17px;
-  line-height: 1.8;
-  opacity: 0;
-  animation: textFade 6s ease forwards;
-}
+    .endingText {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      left: 50%;
+      width: 90%;
+      max-width: 650px;
+      transform: translate(-50%, -50%);
+    }
 
-   .endingText p:nth-child(1) {
-  animation-delay: 1s;
-}
-.endingText p:nth-child(2) {
-  animation-delay: 7s;
-}
-.endingText p:nth-child(3) {
-  animation-delay: 13s;
-}
-.endingText p:nth-child(4) {
-  animation-delay: 19s;
-}
-.endingText p:nth-child(5) {
-  animation-delay: 25s;
-}
-.endingText p:nth-child(6) {
-  animation-delay: 31s;
-}
-.endingText p:nth-child(7) {
-  animation-delay: 37s;
-}
-.endingText p:nth-child(8) {
-  animation-delay: 43s;
-}
-.endingText p:nth-child(9) {
-  animation-delay: 49s;
-}
-.endingText p:nth-child(10) {
-  animation-delay: 55s;
-}
-.endingText p:nth-child(11) {
-  animation-delay: 61s;
-}
+    .endingText p {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      margin: 0;
+      transform: translate(-50%, -50%);
+      color: #ddd;
+      font-size: 17px;
+      line-height: 1.8;
+      opacity: 0;
+      animation: textFade 6s ease forwards;
+    }
+
+    .endingText p:nth-child(1) {
+      animation-delay: 1s;
+    }
+
+    .endingText p:nth-child(2) {
+      animation-delay: 7s;
+    }
+
+    .endingText p:nth-child(3) {
+      animation-delay: 13s;
+    }
+
+    .endingText p:nth-child(4) {
+      animation-delay: 19s;
+    }
+
+    .endingText p:nth-child(5) {
+      animation-delay: 25s;
+    }
+
+    .endingText p:nth-child(6) {
+      animation-delay: 31s;
+    }
+
+    .endingText p:nth-child(7) {
+      animation-delay: 37s;
+    }
+
+    .endingText p:nth-child(8) {
+      animation-delay: 43s;
+    }
+
+    .endingText p:nth-child(9) {
+      animation-delay: 49s;
+    }
+
+    .endingText p:nth-child(10) {
+      animation-delay: 55s;
+    }
+
+    .endingText p:nth-child(11) {
+      animation-delay: 61s;
+    }
 
     @keyframes textFade {
-  0% {
-    opacity: 0;
-  }
+      0% {
+        opacity: 0;
+      }
 
-  15% {
-    opacity: 1;
-  }
+      15% {
+        opacity: 1;
+      }
 
-  80% {
-    opacity: 1;
-  }
+      80% {
+        opacity: 1;
+      }
 
-  100% {
-    opacity: 0;
-  }
-}
-    .recommendations {
-  padding-top: 30px;
-}
+      100% {
+        opacity: 0;
+      }
+    }
 
-.recommendations h2 {
-  font-size: 18px;
-  letter-spacing: 4px;
-  margin-bottom: 25px;
-}
+    /* RATING */
 
-.recommendation-row {
-  display: flex;
-  gap: 18px;
-  overflow-x: auto;
-  padding-bottom: 15px;
-  scrollbar-width: none;
-}
+    #ratingScreen {
+      display: none;
+      min-height: 100vh;
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 80px 25px;
+    }
 
-.recommendation-row::-webkit-scrollbar {
-  display: none;
-}
+    #ratingScreen h1 {
+      font-size: 42px;
+      letter-spacing: 10px;
+      margin-bottom: 20px;
+    }
 
-.movie-card {
-  flex: 0 0 150px;
-  text-decoration: none;
-  color: #fff;
-}
+    #ratingScreen p {
+      color: #999;
+      font-size: 15px;
+    }
 
-.movie-card img {
-  width: 150px;
-  height: 220px;
-  object-fit: cover;
-  display: block;
-  border-radius: 3px;
-}
+    .stars {
+      margin-top: 35px;
+      font-size: 42px;
+      letter-spacing: 8px;
+    }
 
-.movie-card-title {
-  font-size: 13px;
-  margin-top: 10px;
-  line-height: 1.4;
-}
-.movie-card-title {
-  font-size: 14px;
-  margin-top: 10px;
-  line-height: 1.4;
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: bold;
-  letter-spacing: 0.3px;
-}
-#finalScreen {
-  display: none !important;
-}
-#ratingScreen {
-  display: none;
-  min-height: 100vh;
-  background: #000;
-  color: #fff;
-  text-align: center;
-  padding: 80px 25px;
-}
+    .stars span {
+      cursor: pointer;
+    }
 
-#ratingScreen h1 {
-  font-size: 42px;
-  letter-spacing: 10px;
-  margin-bottom: 20px;
-}
+    /* PREMIERE */
 
-#ratingScreen p {
-  color: #999;
-  font-size: 15px;
-}
+    #premiereScreen {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 100;
+    }
 
-.stars {
-  margin-top: 35px;
-  font-size: 42px;
-  letter-spacing: 8px;
-}
+    .premiere-content {
+      width: 90%;
+      max-width: 600px;
+    }
 
-.stars span {
-  cursor: pointer;
-}
-  #premiereScreen {
-  position: fixed;
-  inset: 0;
-  background: #000;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  z-index: 100;
-}
+    .premiere-small {
+      font-size: 12px;
+      letter-spacing: 5px;
+      color: #888;
+      margin-bottom: 20px;
+    }
 
-.premiere-content {
-  width: 90%;
-  max-width: 600px;
-}
+    .premiere-content h1 {
+      font-size: 52px;
+      letter-spacing: 12px;
+      margin: 0 0 25px;
+    }
 
-.premiere-small {
-  font-size: 12px;
-  letter-spacing: 5px;
-  color: #888;
-  margin-bottom: 20px;
-}
+    .premiere-content p {
+      color: #999;
+      font-size: 15px;
+      margin-bottom: 25px;
+    }
 
-.premiere-content h1 {
-  font-size: 52px;
-  letter-spacing: 12px;
-  margin: 0 0 25px;
-}
+    #countdown {
+      font-size: 34px;
+      letter-spacing: 4px;
+      font-weight: 300;
+    }
 
-.premiere-content p {
-  color: #999;
-  font-size: 15px;
-  margin-bottom: 25px;
-}
+    .countdown-labels {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 10px;
+      color: #666;
+      font-size: 9px;
+      letter-spacing: 2px;
+    }
 
-#countdown {
-  font-size: 34px;
-  letter-spacing: 4px;
-  font-weight: 300;
-}
+    /* POST RATING */
 
-.countdown-labels {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  margin-top: 10px;
-  color: #666;
-  font-size: 9px;
-  letter-spacing: 2px;
-}
+    #postRatingScreen {
+      display: none;
+      min-height: 100vh;
+      background: #000;
+      color: #fff;
+      padding: 60px 25px;
+      text-align: center;
+    }
+
+    /* FINAL SCREEN */
+
+    #finalScreen {
+      display: none;
+      position: fixed;
+      inset: 0;
+      min-height: 100vh;
+      background: #000;
+      color: #fff;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 9999;
+    }
+
+    #finalScreen h1 {
+      margin: 0 0 15px;
+      font-size: 42px;
+      letter-spacing: 10px;
+    }
+
+    #finalScreen p {
+      margin: 0;
+      color: #999;
+      font-size: 15px;
+    }
+
   </style>
 </head>
 
 <body>
+
+  <!-- PREMIERE -->
+
   <div id="premiereScreen">
-  <div class="premiere-content">
-    <div class="premiere-small">PRIVATE PREMIERE</div>
 
-    <h1>THERAPY</h1>
+    <div class="premiere-content">
 
-    <p>The session begins in</p>
+      <div class="premiere-small">PRIVATE PREMIERE</div>
 
-    <div id="countdown">
-      <span id="days">00</span>
-      <span>:</span>
-      <span id="hours">00</span>
-      <span>:</span>
-      <span id="minutes">00</span>
-      <span>:</span>
-      <span id="seconds">00</span>
+      <h1>THERAPY</h1>
+
+      <p>The session begins in</p>
+
+      <div id="countdown">
+        <span id="days">00</span>
+        <span>:</span>
+        <span id="hours">00</span>
+        <span>:</span>
+        <span id="minutes">00</span>
+        <span>:</span>
+        <span id="seconds">00</span>
+      </div>
+
+      <div class="countdown-labels">
+        <span>DAYS</span>
+        <span>HOURS</span>
+        <span>MINUTES</span>
+        <span>SECONDS</span>
+      </div>
+
     </div>
 
-    <div class="countdown-labels">
-      <span>DAYS</span>
-      <span>HOURS</span>
-      <span>MINUTES</span>
-      <span>SECONDS</span>
-    </div>
   </div>
-</div>
+
 
   <!-- INTRO -->
 
@@ -512,232 +554,397 @@
     <div class="video-wrapper">
 
       <video controls playsinline>
-        <source src="https://www.dropbox.com/scl/fi/e8jc4wwd05wmynh7fyffl/Video-29-9-2026-15-01-07.mov?rlkey=wd8lqxrrkarzeiohmdm00a2go&st=00dfhukf&raw=1" 
-type="video/quicktime">
+
+        <source
+          src="https://www.dropbox.com/scl/fi/e8jc4wwd05wmynh7fyffl/Video-29-9-2026-15-01-07.mov?rlkey=wd8lqxrrkarzeiohmdm00a2go&st=00dfhukf&raw=1"
+          type="video/quicktime">
+
         Your browser does not support video playback.
+
       </video>
 
     </div>
 
-  <div class="movie-info recommendations">
 
-  <h2>MORE TO WATCH</h2>
+    <!-- MORE TO WATCH -->
 
-  <div class="recommendation-row">
+    <div class="movie-info recommendations">
 
-    <a class="movie-card" href="https://youtu.be/5iEOQn8UUHI?si=Yvcat9SesOY-0G7X" target="_blank">
-      <img src="IMG_1406.jpeg" alt="Forever My Girl">
-      <div class="movie-card-title">Forever My Girl</div>
-      <div class="movie-card-summary">
-  A country music star returns to his hometown and the love he left behind, forcing him to face the life he walked away from.
-</div>
-    </a>
+      <h2>MORE TO WATCH</h2>
 
-    <a class="movie-card" href="https://youtu.be/2SvwX3ux_-8?si=MDr9Q8-uU_FmybFJ" target="_blank">
-      <img src="IMG_1408.jpeg" alt="After We Collided">
-      <div class="movie-card-title">After We Collided</div>
-      <div class="movie-card-summary">
-  Tessa and Hardin struggle with love, trust, and the painful consequences of their complicated relationship.
-</div>
-    </a>
+      <div class="recommendation-row">
 
-    <a class="movie-card" href="https://youtu.be/IAUufoNOubE?si=OrLW5cTsMo1eYk88" target="_blank">
-      <img src="IMG_1409.jpeg" alt="Life in a Year">
-      <div class="movie-card-title">Life in a Year</div>
-      <div class="movie-card-summary">
-  A young man discovers that his girlfriend is dying and decides to give her a lifetime of memories in the time they have left.
-</div>
-    </a>
+        <a
+          class="movie-card"
+          href="https://youtu.be/5iEOQn8UUHI?si=Yvcat9SesOY-0G7X"
+          target="_blank">
 
-  </div>
+          <img src="IMG_1406.jpeg" alt="Forever My Girl">
 
-</div>
+          <div class="movie-card-title">
+            Forever My Girl
+          </div>
 
-</div>
+          <div class="movie-card-summary">
+            A country music star returns to his hometown and the love he left behind, forcing him to face the life he walked away from.
+          </div>
+
+        </a>
 
 
-<script>
-const premiereDate = new Date("October 01, 2026 13:20:00+02:00").getTime();
-const countdownTimer = setInterval(function() {
-  const now = new Date().getTime();
-  const distance = premiereDate - now;
+        <a
+          class="movie-card"
+          href="https://youtu.be/2SvwX3ux_-8?si=MDr9Q8-uU_FmybFJ"
+          target="_blank">
 
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          <img src="IMG_1408.jpeg" alt="After We Collided">
 
-  document.getElementById("days").textContent = String(days).padStart(2, "0");
-  document.getElementById("hours").textContent = String(hours).padStart(2, "0");
-  document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
-  document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+          <div class="movie-card-title">
+            After We Collided
+          </div>
 
-  if (distance <= 0) {
-    clearInterval(countdownTimer);
-    document.getElementById("premiereScreen").style.display = "none";
-  }
-}, 1000);
+          <div class="movie-card-summary">
+            Tessa and Hardin struggle with love, trust, and the painful consequences of their complicated relationship.
+          </div>
 
-  function beginViewing() {
-    document.getElementById("warningScreen").style.display = "none";
-    video.pause();
-    document.getElementById("videoSection").style.display = "block";
-  }
-
-  const video = document.querySelector("video");
-  let endingStarted = false;
-
-  video.addEventListener("timeupdate", function() {
-    if (
-      video.duration &&
-      video.currentTime >= video.duration - 0.5 &&
-      !endingStarted
-    ) {
-      endingStarted = true;
-
-      document.getElementById("videoSection").style.display = "none";
-      document.getElementById("endingScreen").style.display = "block";
-      window.scrollTo(0, 0);
-
-      setTimeout(function() {
-        document.getElementById("endingScreen").style.display = "none";
-        document.getElementById("ratingScreen").style.display = "block";
-        window.scrollTo(0, 0);
-      }, 67000);
-    }
-  });
-
- function rateMovie(stars) {
-  document.getElementById("ratingScreen").innerHTML =
-    "<h1>THERAPY</h1><p>Thank you for your review.</p>";
-
-  setTimeout(function() {
-    document.getElementById("ratingScreen").style.display = "none";
-    document.getElementById("postRatingScreen").style.display = "block";
-    window.scrollTo(0, 0);
-  }, 6000);
-}
-<div id="finalScreen" style="display: none; position: fixed; inset: 0; background: #000; color: #fff; text-align: center; justify-content: center; align-items: center; flex-direction: column; z-index: 9999;">
-
-  <h1 style="margin: 0 0 15px; font-size: 42px; letter-spacing: 10px;">
-    THERAPY
-  </h1>
-
-  <p style="margin: 0; color: #999; font-size: 15px;">
-    Thank you for watching.
-  </p>
-
-</div>
-</script>
-
-</body>
-<!-- POST-VIDEO ENDING -->
-
-<div id="endingScreen">
-
-  <div class="endingVisual">
-    <div class="bird">🐦</div>
-    <div class="fish">🐟</div>
-  </div>
-
-  <div class="endingText">
-
-    <p>We come looking for answers.</p>
-
-    <p>Sometimes, we leave with acceptance.</p>
-
-    <p>Love doesn't always mean staying.</p>
-
-    <p>Sometimes, two people can love each other deeply...</p>
-
-    <p>...and still belong to different worlds.</p>
-
-    <p>The bird belongs to the sky.</p>
-
-    <p>The fish belongs to the sea.</p>
-
-    <p>Neither is wrong for being what they are.</p>
-
-    <p>Sometimes, love means letting go.</p>
-
-    <p>And accepting what cannot be changed.</p>
-
-    <p>THE SESSION IS OVER.</p>
-
-  </div>
-
-</div>
-
-</div>
+        </a>
 
 
-  <h1>THERAPY</h1>
+        <a
+          class="movie-card"
+          href="https://youtu.be/IAUufoNOubE?si=OrLW5cTsMo1eYk88"
+          target="_blank">
 
- <div id="ratingScreen">
+          <img src="IMG_1409.jpeg" alt="Life in a Year">
 
-  <h1>THERAPY</h1>
+          <div class="movie-card-title">
+            Life in a Year
+          </div>
 
-  <p>Thank you for watching.</p>
+          <div class="movie-card-summary">
+            A young man discovers that his girlfriend is dying and decides to give her a lifetime of memories in the time they have left.
+          </div>
 
-  <p>How was your experience?</p>
+        </a>
 
-  <div class="stars">
-    <span onclick="rateMovie(1)">★</span>
-    <span onclick="rateMovie(2)">★</span>
-    <span onclick="rateMovie(3)">★</span>
-    <span onclick="rateMovie(4)">★</span>
-    <span onclick="rateMovie(5)">★</span>
-  </div>
-
-</div>
-
-</div>
-
-<div id="postRatingScreen" style="display: none; min-height: 100vh; background: #000; color: #fff; padding: 60px 25px; text-align: center;">
-
-  <div class="recommendations">
-
-    <h2>MORE TO WATCH</h2>
-
-    <div class="recommendation-row">
-
-      <a class="movie-card" href="https://youtu.be/5iEOQn8UUHI?si=Yvcat9SesOY-0G7X" target="_blank">
-        <img src="IMG_1406.jpeg" alt="Forever My Girl">
-        <div class="movie-card-title">Forever My Girl</div>
-        <div class="movie-card-summary">
-          A country music star returns to his hometown and the love he left behind, forcing him to face the life he walked away from.
-        </div>
-      </a>
-
-      <a class="movie-card" href="https://youtu.be/2SvwX3ux_-8?si=MDr9Q8-uU_FmybFJ" target="_blank">
-        <img src="IMG_1408.jpeg" alt="After We Collided">
-        <div class="movie-card-title">After We Collided</div>
-        <div class="movie-card-summary">
-          Tessa and Hardin struggle with love, trust, and the painful consequences of their complicated relationship.
-        </div>
-      </a>
-
-      <a class="movie-card" href="https://youtu.be/IAUufoNOubE?si=OrLW5cTsMo1eYk88" target="_blank">
-        <img src="IMG_1409.jpeg" alt="Life in a Year">
-        <div class="movie-card-title">Life in a Year</div>
-        <div class="movie-card-summary">
-          A young man discovers that his girlfriend is dying and decides to give her a lifetime of memories in the time they have left.
-        </div>
-      </a>
+      </div>
 
     </div>
 
-  <button onclick="continueToFinal()">CONTINUE</button>
+  </div>
+
+
+  <!-- POST-VIDEO ENDING -->
+
+  <div id="endingScreen">
+
+    <div class="endingVisual">
+
+      <div class="bird">🐦</div>
+
+      <div class="fish">🐟</div>
+
+    </div>
+
+
+    <div class="endingText">
+
+      <p>We come looking for answers.</p>
+
+      <p>Sometimes, we leave with acceptance.</p>
+
+      <p>Love doesn't always mean staying.</p>
+
+      <p>Sometimes, two people can love each other deeply...</p>
+
+      <p>...and still belong to different worlds.</p>
+
+      <p>The bird belongs to the sky.</p>
+
+      <p>The fish belongs to the sea.</p>
+
+      <p>Neither is wrong for being what they are.</p>
+
+      <p>Sometimes, love means letting go.</p>
+
+      <p>And accepting what cannot be changed.</p>
+
+      <p>THE SESSION IS OVER.</p>
+
+    </div>
 
   </div>
 
-</div>
 
-<div id="finalScreen" style="justify-content: 100vh; background: #000; color: #fff; text-align: center; padding: 25px; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+  <!-- RATING -->
 
-  <h1>THERAPY</h1>
+  <div id="ratingScreen">
 
-  <p style="color: #999;">Thank you for watching.</p>
+    <h1>THERAPY</h1>
 
-</div>
+    <p>Thank you for watching.</p>
+
+    <p>How was your experience?</p>
+
+    <div class="stars">
+
+      <span onclick="rateMovie(1)">★</span>
+      <span onclick="rateMovie(2)">★</span>
+      <span onclick="rateMovie(3)">★</span>
+      <span onclick="rateMovie(4)">★</span>
+      <span onclick="rateMovie(5)">★</span>
+
+    </div>
+
+  </div>
+
+
+  <!-- AFTER RATING -->
+
+  <div id="postRatingScreen">
+
+    <div class="recommendations">
+
+      <h2>MORE TO WATCH</h2>
+
+      <div class="recommendation-row">
+
+
+        <a
+          class="movie-card"
+          href="https://youtu.be/5iEOQn8UUHI?si=Yvcat9SesOY-0G7X"
+          target="_blank">
+
+          <img src="IMG_1406.jpeg" alt="Forever My Girl">
+
+          <div class="movie-card-title">
+            Forever My Girl
+          </div>
+
+          <div class="movie-card-summary">
+            A country music star returns to his hometown and the love he left behind, forcing him to face the life he walked away from.
+          </div>
+
+        </a>
+
+
+        <a
+          class="movie-card"
+          href="https://youtu.be/2SvwX3ux_-8?si=MDr9Q8-uU_FmybFJ"
+          target="_blank">
+
+          <img src="IMG_1408.jpeg" alt="After We Collided">
+
+          <div class="movie-card-title">
+            After We Collided
+          </div>
+
+          <div class="movie-card-summary">
+            Tessa and Hardin struggle with love, trust, and the painful consequences of their complicated relationship.
+          </div>
+
+        </a>
+
+
+        <a
+          class="movie-card"
+          href="https://youtu.be/IAUufoNOubE?si=OrLW5cTsMo1eYk88"
+          target="_blank">
+
+          <img src="IMG_1409.jpeg" alt="Life in a Year">
+
+          <div class="movie-card-title">
+            Life in a Year
+          </div>
+
+          <div class="movie-card-summary">
+            A young man discovers that his girlfriend is dying and decides to give her a lifetime of memories in the time they have left.
+          </div>
+
+        </a>
+
+      </div>
+
+
+      <button onclick="continueToFinal()">CONTINUE</button>
+
+    </div>
+
+  </div>
+
+
+  <!-- FINAL -->
+
+  <div id="finalScreen">
+
+    <h1>THERAPY</h1>
+
+    <p>Thank you for watching.</p>
+
+  </div>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    /* TEST COUNTDOWN
+       5 minutes from the moment the page loads.
+       Change this later for the real premiere.
+    */
+
+    const premiereDate =
+      new Date().getTime() + (5 * 60 * 1000);
+
+    const countdownTimer = setInterval(function() {
+
+      const now = new Date().getTime();
+
+      const distance = premiereDate - now;
+
+
+      const days = Math.floor(
+        distance / (1000 * 60 * 60 * 24)
+      );
+
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) /
+        (1000 * 60 * 60)
+      );
+
+      const minutes = Math.floor(
+        (distance % (1000 * 60 * 60)) /
+        (1000 * 60)
+      );
+
+      const seconds = Math.floor(
+        (distance % (1000 * 60)) /
+        1000
+      );
+
+
+      document.getElementById("days").textContent =
+        String(days).padStart(2, "0");
+
+      document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+
+      document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+      document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+
+
+      if (distance <= 0) {
+
+        clearInterval(countdownTimer);
+
+        document.getElementById("premiereScreen").style.display =
+          "none";
+
+      }
+
+    }, 1000);
+
+
+    /* VIDEO */
+
+    const video = document.querySelector("video");
+
+    let endingStarted = false;
+
+
+    function beginViewing() {
+
+      document.getElementById("warningScreen").style.display =
+        "none";
+
+      video.pause();
+
+      document.getElementById("videoSection").style.display =
+        "block";
+
+    }
+
+
+    /* WHEN VIDEO ENDS */
+
+    video.addEventListener("timeupdate", function() {
+
+      if (
+        video.duration &&
+        video.currentTime >= video.duration - 0.5 &&
+        !endingStarted
+      ) {
+
+        endingStarted = true;
+
+
+        document.getElementById("videoSection").style.display =
+          "none";
+
+        document.getElementById("endingScreen").style.display =
+          "block";
+
+        window.scrollTo(0, 0);
+
+
+        setTimeout(function() {
+
+          document.getElementById("endingScreen").style.display =
+            "none";
+
+          document.getElementById("ratingScreen").style.display =
+            "block";
+
+          window.scrollTo(0, 0);
+
+        }, 67000);
+
+      }
+
+    });
+
+
+    /* RATING */
+
+    function rateMovie(stars) {
+
+      document.getElementById("ratingScreen").innerHTML =
+        "<h1>THERAPY</h1><p>Thank you for your review.</p>";
+
+
+      setTimeout(function() {
+
+        document.getElementById("ratingScreen").style.display =
+          "none";
+
+        document.getElementById("postRatingScreen").style.display =
+          "block";
+
+        window.scrollTo(0, 0);
+
+      }, 6000);
+
+    }
+
+
+    /* FINAL SCREEN */
+
+    function continueToFinal() {
+
+      document.getElementById("postRatingScreen").style.display =
+        "none";
+
+      document.getElementById("finalScreen").style.display =
+        "flex";
+
+      window.scrollTo(0, 0);
+
+    }
+
+  </script>
+
+</body>
 </html>
