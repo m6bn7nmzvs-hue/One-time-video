@@ -1466,26 +1466,57 @@
 
 
 
-    /* ONE-TIME VIEWING */
+    /* UNIQUE VIEWING LINK */
 
-    const viewingUsed =
-      localStorage.getItem(
-        "therapyViewingUsed"
-      );
+const linkCode =
+  new URLSearchParams(window.location.search).get("link");
+
+const validLinks = [
+  "THERAPY01",
+  "THERAPY02",
+  "THERAPY03",
+  "THERAPY04",
+  "THERAPY05",
+  "THERAPY06",
+  "THERAPY07",
+  "THERAPY08",
+  "THERAPY09",
+  "THERAPY10"
+];
 
 
-    if (viewingUsed === "true") {
+if (!validLinks.includes(linkCode)) {
 
-      document.getElementById(
-        "warningScreen"
-      ).style.display = "none";
+  document.getElementById(
+    "warningScreen"
+  ).style.display = "none";
+
+  document.getElementById(
+    "expiredScreen"
+  ).style.display = "flex";
+
+}
 
 
-      document.getElementById(
-        "expiredScreen"
-      ).style.display = "flex";
+const viewingKey =
+  "therapyViewingUsed_" + linkCode;
 
-    }
+
+if (
+  linkCode &&
+  validLinks.includes(linkCode) &&
+  localStorage.getItem(viewingKey) === "true"
+) {
+
+  document.getElementById(
+    "warningScreen"
+  ).style.display = "none";
+
+  document.getElementById(
+    "expiredScreen"
+  ).style.display = "flex";
+
+}
 
 
 
@@ -1504,29 +1535,24 @@
 
     function beginViewing() {
 
+  /* LOCK THIS SPECIFIC LINK IMMEDIATELY */
 
-      /* LOCK THE VIEWING IMMEDIATELY */
+  localStorage.setItem(
+    viewingKey,
+    "true"
+  );
 
-      localStorage.setItem(
-        "therapyViewingUsed",
-        "true"
-      );
+  document.getElementById(
+    "warningScreen"
+  ).style.display = "none";
 
+  video.pause();
 
-      document.getElementById(
-        "warningScreen"
-      ).style.display = "none";
+  document.getElementById(
+    "videoSection"
+  ).style.display = "block";
 
-
-      video.pause();
-
-
-      document.getElementById(
-        "videoSection"
-      ).style.display = "block";
-
-
-    }
+}
 
 
 
