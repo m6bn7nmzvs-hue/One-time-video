@@ -52,6 +52,22 @@
         visibility: hidden;
       }
     }
+    <!-- EXPIRED LINK SCREEN -->
+
+<div id="expiredScreen">
+
+  <div class="expired-lock">
+    <div class="lock-body">
+      <div class="lock-shackle"></div>
+      <div class="lock-keyhole"></div>
+    </div>
+  </div>
+
+  <h1>THIS LINK HAS EXPIRED</h1>
+
+  <p>Request a new link to continue.</p>
+
+</div>
     /* WARNING */
     #warningScreen {
       min-height: 100vh;
@@ -609,8 +625,7 @@
        5 minutes from the moment the page loads.
        Change this later for the real premiere.
     */
-    const premiereDate =
-      new Date().getTime() + (5 * 60 * 1000);
+    const premiereDate = new Date().getTime();
     const countdownTimer = setInterval(function() {
       const now = new Date().getTime();
       const distance = premiereDate - now;
